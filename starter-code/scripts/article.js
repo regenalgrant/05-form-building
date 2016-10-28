@@ -13,10 +13,10 @@ Article.prototype.toHtml = function(scriptTemplateId) {
   if(this.daysAgo < 1) {
     this.publishStatus = '(published today)';
   } else {
-    this.publishStatus = this.publishedOn ? 'published ' + this.daysAgo + ' days ago' : '(draft)';
+    this.publishStatus === this.publishedOn ? 'published ' + this.daysAgo + ' days ago' : '(draft)';
   }
   // TODO: Parse any markdown with marked!
-
+  this.body = marked (this.body);
   return renderTemplate(this);
 };
 
